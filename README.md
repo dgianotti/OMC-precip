@@ -24,6 +24,9 @@ The Potential Predictability of Precipitation Occurrence, Intensity, and
 Seasonal Totals over the Continental United States. J. Climate, 27, 6904–6918.
 
 
+This software is licensed under the GNU General Public License v3.0.
+See the accompanying License.txt file for details.
+
 
 ## Documentation for OMC_fit
 function [selected_dims, occ_params, int_params] = OMC_fit(precip_obs,varargin)

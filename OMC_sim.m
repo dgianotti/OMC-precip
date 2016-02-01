@@ -24,6 +24,7 @@ function precip_sim = OMC_sim(selected_dims, occ_params, int_params, N_years, N_
 % to the user.
 %
 
+% This software is licensed under the GNU General Public License v3.0
 
 max_lags = max(selected_dims)-1;
 hist = rand(N_sims,max_lags) > mean(occ_params{1}(:));

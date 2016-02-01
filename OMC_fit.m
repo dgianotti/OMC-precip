@@ -92,6 +92,8 @@ function [selected_dims, occ_params, int_params] = OMC_fit(precip_obs,varargin)
 % Occurrence, Intensity, and Seasonal Totals over the Continental United
 % States. J. Climate, 27, 6904–6918.
 
+% This software is licensed under the GNU General Public License v3.0
+
 pooling = 31;
 max_dims = 5;
 
