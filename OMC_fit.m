@@ -81,10 +81,11 @@ function [selected_dims, occ_params, int_params] = OMC_fit(precip_obs,varargin)
 % 
 % You are welcome to use this code in any non-commercial context, however I
 % ask that you please cite the code using the following DOI:
-% 
+% DOI:10.5281/zenodo.45435
 %
 % An example citation style is:
-% 
+% Daniel J. Short Gianotti, 2016: Occurrence Markov Chain daily precipitation model. 
+% http://github.com/dgianotti/OMC-precip, DOI:10.5281/zenodo.45435.
 % 
 % If for some reason you are not able to cite source code, please cite the
 % following paper: Daniel J. Short Gianotti, Bruce T. Anderson, and Guido
