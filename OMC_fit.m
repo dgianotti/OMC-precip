@@ -324,6 +324,40 @@ neg_log_like = -sum(log(max(likelihood,1e-16)));
 end % function
 
 
+function [neg_log_like,k2,theta2]=gam_mix_likeC_fixed_weight(params1,weight,data,mean_obs,var_obs)
+% This only gets used if things are goinf bad in the PDF-fitting world.
+% This is just like gam_mix_likeC, but with the weight parameter taken out
+% (and put in a for loop). params1 is now 1x2 rather than 1x3
+%
+% This is Guido's function (with some moderate aesthetic revision) for 
+% determining the log likelihood from the data, given params1, a vector of 
+% three parameters: [k1, theta1, weight]. 
+
+% Determine the likelihood of the data given the parameters for the first
+% gamma distribution:
+likelihood1 = gampdf(data,params1(1),params1(2));
+
+mu1 = params1(1).*params1(2);
+v1 = params1(1).*params1(2).^2;
+
+mu2 = (mean_obs-weight.*mu1)./(1-weight);
+
+v2 = (var_obs-weight.*(mu1-mean_obs).^2-weight.*v1-(1-weight).*(mu2-mean_obs).^2)./(1-weight);
+
+k2 = mu2.^2./v2; % k2
+theta2 = v2./mu2; % theta2
+
+likelihood2 = gampdf(data,k2,theta2);
+
+likelihood = weight.*likelihood1+(1-weight).*likelihood2;
+
+neg_log_like = -sum(log(max(likelihood,1e-16)));
+end % function
+
+
+
+
+
 
 
 
